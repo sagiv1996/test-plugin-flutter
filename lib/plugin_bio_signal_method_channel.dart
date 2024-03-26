@@ -11,7 +11,18 @@ class MethodChannelPluginBioSignal extends PluginBioSignalPlatform {
 
   @override
   Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
+    final version =
+        await methodChannel.invokeMethod<String>('getPlatformVersion');
     return version;
+  }
+
+  @override
+  void stopBio() {
+    methodChannel.invokeMethod('stopBio');
+  }
+
+  @override
+  void startBio() {
+    methodChannel.invokeMethod('startBio');
   }
 }

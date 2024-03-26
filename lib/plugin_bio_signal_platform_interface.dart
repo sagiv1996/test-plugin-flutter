@@ -26,4 +26,12 @@ abstract class PluginBioSignalPlatform extends PlatformInterface {
   Future<String?> getPlatformVersion() {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
+
+  void stopBio() {
+    throw UnimplementedError('stopBio() has not been implemented.');
+  }
+
+  void startBio() {
+    throw UnimplementedError('startBio() has not been implemented.');
+  }
 }
