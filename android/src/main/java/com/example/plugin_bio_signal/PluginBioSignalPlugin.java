@@ -7,6 +7,7 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
+import com.biosignals.api.BioApi;
 
 /** PluginBioSignalPlugin */
 public class PluginBioSignalPlugin implements FlutterPlugin, MethodCallHandler {
@@ -15,6 +16,9 @@ public class PluginBioSignalPlugin implements FlutterPlugin, MethodCallHandler {
   /// This local reference serves to register the plugin with the Flutter Engine and unregister it
   /// when the Flutter Engine is detached from the Activity
   private MethodChannel channel;
+  // private  BioApi myApi;
+
+
 
   @Override
   public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
@@ -24,9 +28,21 @@ public class PluginBioSignalPlugin implements FlutterPlugin, MethodCallHandler {
 
   @Override
   public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
-    if (call.method.equals("getPlatformVersion")) {
+    
+    if (call.method.equals("getPlatformVersion")) { 
       result.success("Android " + android.os.Build.VERSION.RELEASE);
-    } else {
+      
+    }
+    
+    else if (call.method.equals("stopBio")){
+       BioApi myApi = BioApi.getInstance();
+    result.success("stopBio");      
+    }     
+    else if (call.method.equals("startBio")){
+
+      result.success("startBio");      
+    }     
+    else {
       result.notImplemented();
     }
   }
