@@ -33,9 +33,9 @@ public class PluginBioSignalPlugin implements FlutterPlugin, MethodCallHandler {
       result.success("Android " + android.os.Build.VERSION.RELEASE);
       
     }
-    
+
     else if (call.method.equals("stopBio")){
-       BioApi myApi = BioApi.getInstance();
+      BioApi myApi = BioApi.getInstance();
     result.success("stopBio");      
     }     
     else if (call.method.equals("startBio")){
