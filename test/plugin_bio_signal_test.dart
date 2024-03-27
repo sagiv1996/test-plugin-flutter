@@ -10,6 +10,16 @@ class MockPluginBioSignalPlatform
 
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
+  
+  @override
+  void startBio() {
+    // TODO: implement startBio
+  }
+  
+  @override
+  void stopBio() {
+    // TODO: implement stopBio
+  }
 }
 
 void main() {
